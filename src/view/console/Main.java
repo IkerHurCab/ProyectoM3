@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import model.*;
+import exceptions.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -307,78 +310,29 @@ public class Main {
                     break;
 
                 case "8":
-                    Cuidador cuidador = new Cuidador();
-                    cuidador.setId(id);
-                    System.out.println("Introduce el nombre del empleado:");
-                    answer = scan.next();
-                    cuidador.setNombre(answer);
-
-                    System.out.println("Introduce la fecha de nacimiento (formato: dd/mm/yyyy):");
-                    answer = scan.next();
-
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    sdf.setLenient(false);
-
                     try {
-                        Date fechaNacimiento = sdf.parse(answer);
-                        cuidador.setFecha(fechaNacimiento);
-                        System.out.println("Fecha de nacimiento registrada: " + fechaNacimiento);
-                    } catch (ParseException e) {
-                        System.out.println("Error: El formato de fecha es incorrecto. Asegúrate de usar el formato dd/mm/yyyy.");
-                    }
-
-                    System.out.println("Introduce el sueldo del cuidador:");
-                    answer = scan.next();
-
-                    try {
-                        cuidador.setSueldo(Integer.parseInt(answer));
-                        zoo.getEmpleados().add(cuidador);
-                    } catch (NumberFormatException ex) {
-                        System.out.println("Error: " + ex);
+                        anadirCuidador(answer, id, zoo);
+                    } catch (InvalidSalaryException ex) {
+                        System.out.println(ex.getMessage());
                     }
                     break;
 
                 case "9":
-                    if (zoo.getEmpleados().isEmpty()) {
-                        System.out.println("No hay empleados en el zoo.");
-                    } else {
-                        System.out.println("Selecciona el empleado que deseas despedir:");
-                        int i = 1;
-                        for (Empleado empleado : zoo.getEmpleados()) {
-                            System.out.println(i + ". " + empleado.getNombre());
-                            i++;
-                        }
-
-                        answer = scan.next();
-                        try {
-                            int index = Integer.parseInt(answer) - 1;
-
-                            if (index >= 0 && index < zoo.getEmpleados().size()) {
-                                Empleado empleadoSeleccionado = zoo.getEmpleados().get(index);
-                                zoo.despedirEmpleado(empleadoSeleccionado);
-                                System.out.println("Empleado " + empleadoSeleccionado.getNombre() + " despedido.");
-                            } else {
-                                System.out.println("Número de empleado no válido.");
-                                answer = "";
-                            }
-                        } catch (NumberFormatException e) {
-                            System.out.println("Por favor, ingresa un número válido.");
-                        }
+                    try {
+                        despedirEmpleado(zoo, answer);
+                    } catch (NoEmployeesException ex) {
+                        System.out.println(ex.getMessage());
                     }
                     break;
+
                 case "10":
-                    if (zoo.getEmpleados().isEmpty()) {
-                        System.out.println("No hay empleados en el zoo.");
-                    } else {
-                        System.out.println("\nLista de Empleados:");
-                        for (Empleado empleado : zoo.getEmpleados()) {
-                            System.out.println("Nombre: " + empleado.getNombre());
-                            System.out.println("Fecha: " + empleado.getFecha());
-                            System.out.println("Sueldo: " + empleado.getSueldo());
-                            System.out.println("-------------------------");
-                        }
+                    try {
+                        verEmpleados(zoo);
+                    } catch (NoEmployeesException ex) {
+                        System.out.println(ex.getMessage());
                     }
                     break;
+
                 case "11":
                     Socio socio = new Socio();
                     NoSocio noSocio = new NoSocio();
@@ -392,7 +346,7 @@ public class Main {
                     System.out.println("Introduce la fecha de nacimiento (formato: dd/mm/yyyy):");
                     answer = scan.next();
 
-                    sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                     sdf.setLenient(false);
 
                     try {
@@ -522,7 +476,7 @@ public class Main {
                         System.out.println("El animal " + animal.getNombre() + " necesita atención.");
                     }
                 }
-                
+
                 for (Animal animal : animalesAEliminar) {
                     zoo.eliminarAnimal(animal);
                 }
@@ -530,5 +484,88 @@ public class Main {
 
             id++;
         } while (!answer.equals("0"));
+    }
+
+    private static void anadirCuidador(String answer, int id, Zoo zoo) throws InvalidSalaryException {
+        Cuidador cuidador = new Cuidador();
+        cuidador.setId(id);
+        System.out.println("Introduce el nombre del empleado:");
+        answer = scan.next();
+        cuidador.setNombre(answer);
+
+        System.out.println("Introduce la fecha de nacimiento (formato: dd/mm/yyyy):");
+        answer = scan.next();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        sdf.setLenient(false);
+
+        try {
+            Date fechaNacimiento = sdf.parse(answer);
+            cuidador.setFecha(fechaNacimiento);
+            System.out.println("Fecha de nacimiento registrada: " + fechaNacimiento);
+        } catch (ParseException e) {
+            System.out.println("Error: El formato de fecha es incorrecto. Asegúrate de usar el formato dd/mm/yyyy.");
+        }
+
+        System.out.println("Introduce el sueldo del cuidador:");
+        answer = scan.next();
+
+        try {
+
+            if (Integer.parseInt(answer) > 0 && Integer.parseInt(answer) < 1134) {
+                throw new InvalidSalaryException("Error: el salario no supera el salario minimo.");
+            } else if (Integer.parseInt(answer) < 0) {
+                throw new InvalidSalaryException("Error: el salario no puede ser inferior a 0.");
+            }
+
+            cuidador.setSueldo(Integer.parseInt(answer));
+            zoo.getEmpleados().add(cuidador);
+
+        } catch (NumberFormatException ex) {
+            System.out.println("Error: " + ex);
+        }
+    }
+
+    private static void despedirEmpleado(Zoo zoo, String answer) throws NoEmployeesException {
+        if (zoo.getEmpleados().isEmpty()) {
+            throw new NoEmployeesException();
+        } else {
+            System.out.println("Selecciona el empleado que deseas despedir:");
+            int i = 1;
+            for (Empleado empleado : zoo.getEmpleados()) {
+                System.out.println(i + ". " + empleado.getNombre());
+                i++;
+            }
+
+            answer = scan.next();
+            try {
+                int index = Integer.parseInt(answer) - 1;
+
+                if (index >= 0 && index < zoo.getEmpleados().size()) {
+                    Empleado empleadoSeleccionado = zoo.getEmpleados().get(index);
+                    zoo.despedirEmpleado(empleadoSeleccionado);
+                    System.out.println("Empleado " + empleadoSeleccionado.getNombre() + " despedido.");
+                } else {
+                    System.out.println("Número de empleado no válido.");
+                    answer = "";
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor, ingresa un número válido.");
+            }
+        }
+    }
+
+    private static void verEmpleados(Zoo zoo) throws NoEmployeesException {
+        if (zoo.getEmpleados().isEmpty()) {
+            throw new NoEmployeesException();
+        } else {
+            System.out.println("\nLista de Empleados:");
+            for (Empleado empleado : zoo.getEmpleados()) {
+                System.out.println("Nombre: " + empleado.getNombre());
+                System.out.println("Fecha: " + empleado.getFecha());
+                System.out.println("Sueldo: " + empleado.getSueldo());
+                System.out.println("-------------------------");
+            }
+        }
     }
 }
