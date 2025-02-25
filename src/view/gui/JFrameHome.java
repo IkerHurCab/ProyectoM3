@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view.gui;
-
+import view.utils.ZooData;
 /**
  *
  * @author ikerhurcab
@@ -26,34 +26,111 @@ public class JFrameHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jButtonGerente = new javax.swing.JButton();
+        jButtonVisitante = new javax.swing.JButton();
+        jButtonTrabajador = new javax.swing.JButton();
         jLabelTitle = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabelTitle.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 36)); // NOI18N
-        jLabelTitle.setForeground(new java.awt.Color(153, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+
+        jButtonGerente.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jButtonGerente.setText("Entrar como gerente");
+        jButtonGerente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGerenteActionPerformed(evt);
+            }
+        });
+
+        jButtonVisitante.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jButtonVisitante.setText("Entrar como visitante");
+        jButtonVisitante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVisitanteActionPerformed(evt);
+            }
+        });
+
+        jButtonTrabajador.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jButtonTrabajador.setText("Entrar como trabajador");
+        jButtonTrabajador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTrabajadorActionPerformed(evt);
+            }
+        });
+
+        jLabelTitle.setFont(new java.awt.Font("DialogInput", 1, 36)); // NOI18N
+        jLabelTitle.setForeground(new java.awt.Color(51, 51, 51));
         jLabelTitle.setText("Zoo Monlau");
         jLabelTitle.setAlignmentX(0.5F);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelTitle)
+                    .addComponent(jButtonVisitante, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonTrabajador)
+                    .addComponent(jButtonGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(214, 214, 214)
+                .addComponent(jLabelTitle)
+                .addGap(72, 72, 72)
+                .addComponent(jButtonGerente)
+                .addGap(54, 54, 54)
+                .addComponent(jButtonTrabajador)
+                .addGap(52, 52, 52)
+                .addComponent(jButtonVisitante)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(466, Short.MAX_VALUE)
-                .addComponent(jLabelTitle)
-                .addGap(466, 466, 466))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 799, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jLabelTitle)
-                .addContainerGap(448, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerenteActionPerformed
+        JFrameGerente gerenteFrame = new JFrameGerente();
+        gerenteFrame.setVisible(true);
+        this.setVisible(false);   
+    }//GEN-LAST:event_jButtonGerenteActionPerformed
+
+    private void jButtonVisitanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVisitanteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonVisitanteActionPerformed
+
+    private void jButtonTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrabajadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonTrabajadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,6 +168,11 @@ public class JFrameHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonGerente;
+    private javax.swing.JButton jButtonTrabajador;
+    private javax.swing.JButton jButtonVisitante;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
