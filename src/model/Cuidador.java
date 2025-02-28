@@ -41,6 +41,7 @@ public class Cuidador extends Empleado {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+         sb.append(super.toString());
         sb.append("Cuidador{");
         sb.append("animales=").append(animales);
         sb.append('}');

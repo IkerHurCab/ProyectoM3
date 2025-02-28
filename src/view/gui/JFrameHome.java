@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view.gui;
+
 import view.utils.ZooData;
+import exceptions.*;
+import model.*;
+
 /**
  *
  * @author ikerhurcab
@@ -15,6 +19,12 @@ public class JFrameHome extends javax.swing.JFrame {
      */
     public JFrameHome() {
         initComponents();
+        setup();
+    }
+
+    public void setup() {
+        jLabelNoEmployees.setVisible(false);
+        jLabelNoVisitors.setVisible(false);
     }
 
     /**
@@ -31,6 +41,8 @@ public class JFrameHome extends javax.swing.JFrame {
         jButtonVisitante = new javax.swing.JButton();
         jButtonTrabajador = new javax.swing.JButton();
         jLabelTitle = new javax.swing.JLabel();
+        jLabelNoVisitors = new javax.swing.JLabel();
+        jLabelNoEmployees = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,17 +80,26 @@ public class JFrameHome extends javax.swing.JFrame {
         jLabelTitle.setText("Zoo Monlau");
         jLabelTitle.setAlignmentX(0.5F);
 
+        jLabelNoVisitors.setForeground(new java.awt.Color(255, 51, 51));
+        jLabelNoVisitors.setText("¡Aún no hay animales en este zoo!");
+
+        jLabelNoEmployees.setForeground(new java.awt.Color(255, 51, 51));
+        jLabelNoEmployees.setText("No hay trabajadores en el zoo");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(59, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelTitle)
-                    .addComponent(jButtonVisitante, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonTrabajador)
-                    .addComponent(jButtonGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNoVisitors)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabelTitle)
+                        .addComponent(jButtonVisitante, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonTrabajador)
+                        .addComponent(jButtonGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelNoEmployees))
                 .addGap(56, 56, 56))
         );
         jPanel1Layout.setVerticalGroup(
@@ -90,8 +111,12 @@ public class JFrameHome extends javax.swing.JFrame {
                 .addComponent(jButtonGerente)
                 .addGap(54, 54, 54)
                 .addComponent(jButtonTrabajador)
-                .addGap(52, 52, 52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelNoEmployees)
+                .addGap(36, 36, 36)
                 .addComponent(jButtonVisitante)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelNoVisitors)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -119,17 +144,37 @@ public class JFrameHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerenteActionPerformed
+
         JFrameGerente gerenteFrame = new JFrameGerente();
+
         gerenteFrame.setVisible(true);
-        this.setVisible(false);   
+        this.dispose();
     }//GEN-LAST:event_jButtonGerenteActionPerformed
 
     private void jButtonVisitanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVisitanteActionPerformed
-        // TODO add your handling code here:
+        if (ZooData.zoo.getAnimales().isEmpty()) {
+            jLabelNoVisitors.setVisible(true);
+            return;
+        }
+
+        JFrameVisitante visitanteFrame = new JFrameVisitante();
+        visitanteFrame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonVisitanteActionPerformed
 
     private void jButtonTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrabajadorActionPerformed
-        // TODO add your handling code here:
+        try {
+            if (ZooData.zoo.getEmpleados().isEmpty()) {
+                throw new NoEmployeesException();
+            }
+
+            JFrameEmpleado empleadoFrame = new JFrameEmpleado();
+            empleadoFrame.setVisible(true);
+            this.dispose();
+
+        } catch (NoEmployeesException ex) {
+            jLabelNoEmployees.setVisible(true);
+        }
     }//GEN-LAST:event_jButtonTrabajadorActionPerformed
 
     /**
@@ -163,6 +208,7 @@ public class JFrameHome extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JFrameHome().setVisible(true);
+
             }
         });
     }
@@ -172,6 +218,8 @@ public class JFrameHome extends javax.swing.JFrame {
     private javax.swing.JButton jButtonTrabajador;
     private javax.swing.JButton jButtonVisitante;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelNoEmployees;
+    private javax.swing.JLabel jLabelNoVisitors;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

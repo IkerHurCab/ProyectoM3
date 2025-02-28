@@ -4,17 +4,22 @@
  */
 package view.gui;
 import view.utils.ZooData;
+import exceptions.*;
 /**
  *
  * @author iker-hurtado-caballo
  */
 public class JFrameGerente extends javax.swing.JFrame {
-
     /**
      * Creates new form JFrameGerente
      */
     public JFrameGerente() {
         initComponents();
+        setup();
+    }
+    
+    public void setup() {
+
     }
 
     /**
@@ -26,14 +31,92 @@ public class JFrameGerente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        jButtonAnadirAnimal = new javax.swing.JButton();
+        jButtonVerIngresos = new javax.swing.JButton();
+        jButtonContratarEmpleado = new javax.swing.JButton();
+        jButtonAnadirHabitat = new javax.swing.JButton();
+        jButtonDespedirEmpleado = new javax.swing.JButton();
+        jButtonQuitarAnimal = new javax.swing.JButton();
+        jButtonVerEmpleados = new javax.swing.JButton();
+        jButtonExpulsarVisitante = new javax.swing.JButton();
+        jButtonVerVisitantes = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButtonGoBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Añadir animal al Zoo`");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAnadirAnimal.setText("Añadir animal al Zoo");
+        jButtonAnadirAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonAnadirAnimalActionPerformed(evt);
+            }
+        });
+
+        jButtonVerIngresos.setText("Ver Ingresos del Zoo");
+        jButtonVerIngresos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerIngresosActionPerformed(evt);
+            }
+        });
+
+        jButtonContratarEmpleado.setText("Contratrar empleado");
+        jButtonContratarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonContratarEmpleadoActionPerformed(evt);
+            }
+        });
+
+        jButtonAnadirHabitat.setText("Añadir hábitat al zoo");
+        jButtonAnadirHabitat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnadirHabitatActionPerformed(evt);
+            }
+        });
+
+        jButtonDespedirEmpleado.setText("Despedir empleado");
+        jButtonDespedirEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDespedirEmpleadoActionPerformed(evt);
+            }
+        });
+
+        jButtonQuitarAnimal.setText("Quitar animal del zoo");
+        jButtonQuitarAnimal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonQuitarAnimalActionPerformed(evt);
+            }
+        });
+
+        jButtonVerEmpleados.setText("Ver todos los empleados");
+        jButtonVerEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerEmpleadosActionPerformed(evt);
+            }
+        });
+
+        jButtonExpulsarVisitante.setText("Expulsar visitante del zoo");
+        jButtonExpulsarVisitante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExpulsarVisitanteActionPerformed(evt);
+            }
+        });
+
+        jButtonVerVisitantes.setText("Ver todos los visitantes");
+        jButtonVerVisitantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerVisitantesActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        jLabel1.setText("Bienvenido, gerente!");
+
+        jButtonGoBack.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonGoBack.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        jButtonGoBack.setText("Volver al menú");
+        jButtonGoBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGoBackActionPerformed(evt);
             }
         });
 
@@ -42,24 +125,99 @@ public class JFrameGerente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(524, 524, 524)
-                .addComponent(jButton1)
-                .addContainerGap(459, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButtonAnadirAnimal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonVerIngresos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonContratarEmpleado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonAnadirHabitat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonDespedirEmpleado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonQuitarAnimal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonVerEmpleados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonVerVisitantes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonExpulsarVisitante, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonGoBack, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel1))
+                .addContainerGap(889, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(jButton1)
-                .addContainerGap(806, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jLabel1)
+                .addGap(37, 37, 37)
+                .addComponent(jButtonAnadirAnimal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonVerIngresos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonContratarEmpleado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonAnadirHabitat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonDespedirEmpleado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonQuitarAnimal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonVerEmpleados)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonExpulsarVisitante)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonVerVisitantes)
+                .addGap(32, 32, 32)
+                .addComponent(jButtonGoBack)
+                .addContainerGap(465, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonAnadirAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirAnimalActionPerformed
+        JFrameAnadirAnimal jFrameAnadirAnimal = new JFrameAnadirAnimal();
+        jFrameAnadirAnimal.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jButtonAnadirAnimalActionPerformed
+
+    private void jButtonVerIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerIngresosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonVerIngresosActionPerformed
+
+    private void jButtonContratarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContratarEmpleadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonContratarEmpleadoActionPerformed
+
+    private void jButtonAnadirHabitatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirHabitatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAnadirHabitatActionPerformed
+
+    private void jButtonDespedirEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDespedirEmpleadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDespedirEmpleadoActionPerformed
+
+    private void jButtonQuitarAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQuitarAnimalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonQuitarAnimalActionPerformed
+
+    private void jButtonVerEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerEmpleadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonVerEmpleadosActionPerformed
+
+    private void jButtonExpulsarVisitanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExpulsarVisitanteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonExpulsarVisitanteActionPerformed
+
+    private void jButtonVerVisitantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerVisitantesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonVerVisitantesActionPerformed
+
+    private void jButtonGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGoBackActionPerformed
+        this.dispose();
+        JFrameHome jFrameHome = new JFrameHome();
+        jFrameHome.setVisible(true);
+    }//GEN-LAST:event_jButtonGoBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,6 +255,16 @@ public class JFrameGerente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonAnadirAnimal;
+    private javax.swing.JButton jButtonAnadirHabitat;
+    private javax.swing.JButton jButtonContratarEmpleado;
+    private javax.swing.JButton jButtonDespedirEmpleado;
+    private javax.swing.JButton jButtonExpulsarVisitante;
+    private javax.swing.JButton jButtonGoBack;
+    private javax.swing.JButton jButtonQuitarAnimal;
+    private javax.swing.JButton jButtonVerEmpleados;
+    private javax.swing.JButton jButtonVerIngresos;
+    private javax.swing.JButton jButtonVerVisitantes;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

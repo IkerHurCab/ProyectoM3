@@ -31,6 +31,7 @@ public abstract class Empleado extends Persona {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append(super.toString());
         sb.append("Empleado{");
         sb.append("sueldo=").append(sueldo);
         sb.append('}');

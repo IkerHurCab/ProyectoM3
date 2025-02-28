@@ -59,11 +59,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="59" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jLabelTitle" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonVisitante" min="-2" pref="229" max="-2" attributes="0"/>
-                      <Component id="jButtonTrabajador" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonGerente" min="-2" pref="229" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabelNoVisitors" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabelTitle" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonVisitante" min="-2" pref="229" max="-2" attributes="0"/>
+                          <Component id="jButtonTrabajador" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonGerente" min="-2" pref="229" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jLabelNoEmployees" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               </Group>
@@ -78,8 +82,12 @@
                   <Component id="jButtonGerente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="jButtonTrabajador" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabelNoEmployees" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="jButtonVisitante" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabelNoVisitors" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -129,6 +137,22 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Zoo Monlau"/>
             <Property name="alignmentX" type="float" value="0.5"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelNoVisitors">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#xa1;A&#xfa;n no hay animales en este zoo!"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelNoEmployees">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="No hay trabajadores en el zoo"/>
           </Properties>
         </Component>
       </SubComponents>
