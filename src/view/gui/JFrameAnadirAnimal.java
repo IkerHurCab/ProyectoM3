@@ -53,6 +53,7 @@ public class JFrameAnadirAnimal extends javax.swing.JFrame {
         jButtonCheckAnimalForm = new javax.swing.JButton();
         jComboBoxEmployees = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        jButtonVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +83,13 @@ public class JFrameAnadirAnimal extends javax.swing.JFrame {
 
         jLabel4.setText("Cuidador");
 
+        jButtonVolver.setText("Volver");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,6 +98,8 @@ public class JFrameAnadirAnimal extends javax.swing.JFrame {
                 .addContainerGap(59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonCheckAnimalForm, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -121,7 +131,9 @@ public class JFrameAnadirAnimal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
-                .addComponent(jButtonCheckAnimalForm, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonCheckAnimalForm, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -131,11 +143,12 @@ public class JFrameAnadirAnimal extends javax.swing.JFrame {
     private void jButtonCheckAnimalFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCheckAnimalFormActionPerformed
         String animalName = jTextAreaAnimalName.getText();
         String animalSpecies = jTextAreaAnimalSpecies.getText();
-        String selectedEmployeeName = (String) jComboBoxEmployees.getSelectedItem(); // Nombre del empleado seleccionado
+        String selectedEmployeeName = (String) jComboBoxEmployees.getSelectedItem(); 
 
         Animal animal = new Animal();
         animal.setNombre(animalName);
         animal.setEspecie(animalSpecies);
+        animal.setSalud(100);
 
         if (!selectedEmployeeName.equals("No hay empleados disponibles")) {
             Empleado empleadoAsignado = null;
@@ -149,6 +162,7 @@ public class JFrameAnadirAnimal extends javax.swing.JFrame {
 
             if (empleadoAsignado != null) {
                 animal.asignarCuidador(empleadoAsignado);
+                empleadoAsignado.getAnimales().add(animal);
             }
         }
 
@@ -160,6 +174,12 @@ public class JFrameAnadirAnimal extends javax.swing.JFrame {
         jFrameGerente.setVisible(true);
 
     }//GEN-LAST:event_jButtonCheckAnimalFormActionPerformed
+
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+        JFrameGerente jFrameGerente = new JFrameGerente();
+        jFrameGerente.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,6 +218,7 @@ public class JFrameAnadirAnimal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCheckAnimalForm;
+    private javax.swing.JButton jButtonVolver;
     private javax.swing.JComboBox<String> jComboBoxEmployees;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

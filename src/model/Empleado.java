@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -11,9 +12,13 @@ import java.util.Date;
  * @author ikerhurcab
  */
 public abstract class Empleado extends Persona {
+
     protected int sueldo;
+    private ArrayList<Animal> animales;
 
     public Empleado() {
+        this.animales = new ArrayList<Animal>();
+
     }
 
     public Empleado(String nombre, int id, Date fecha) {
@@ -22,6 +27,10 @@ public abstract class Empleado extends Persona {
 
     public int getSueldo() {
         return sueldo;
+    }
+
+    public ArrayList<Animal> getAnimales() {
+        return animales;
     }
 
     public void setSueldo(int sueldo) {
@@ -37,7 +46,7 @@ public abstract class Empleado extends Persona {
         sb.append('}');
         return sb.toString();
     }
-    
+
     public abstract int cobrarSueldo();
-    
+
 }

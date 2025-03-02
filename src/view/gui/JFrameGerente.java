@@ -3,13 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view.gui;
+
 import view.utils.ZooData;
 import exceptions.*;
+import java.awt.Color;
+
 /**
  *
  * @author iker-hurtado-caballo
  */
 public class JFrameGerente extends javax.swing.JFrame {
+
     /**
      * Creates new form JFrameGerente
      */
@@ -17,9 +21,17 @@ public class JFrameGerente extends javax.swing.JFrame {
         initComponents();
         setup();
     }
-    
-    public void setup() {
 
+    public void setup() {
+        int ingresos = ZooData.zoo.calcularIngresos();
+        jLabelIngresos.setVisible(false);
+        jLabelIngresos.setText("Los ingresos actuales del zoo son de " + ingresos + "€.");
+
+        if (ingresos >= 0) {
+            jLabelIngresos.setForeground(Color.GREEN);
+        } else {
+            jLabelIngresos.setForeground(Color.RED);
+        }
     }
 
     /**
@@ -42,6 +54,8 @@ public class JFrameGerente extends javax.swing.JFrame {
         jButtonVerVisitantes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButtonGoBack = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabelIngresos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,7 +101,7 @@ public class JFrameGerente extends javax.swing.JFrame {
             }
         });
 
-        jButtonVerEmpleados.setText("Ver todos los empleados");
+        jButtonVerEmpleados.setText("Ver empleados del zoo");
         jButtonVerEmpleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVerEmpleadosActionPerformed(evt);
@@ -120,13 +134,22 @@ public class JFrameGerente extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/oficina.jpg"))); // NOI18N
+
+        jLabelIngresos.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        jLabelIngresos.setForeground(new java.awt.Color(102, 255, 102));
+        jLabelIngresos.setText("Los ingresos actuales del Zoo son XXXX€");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(133, 133, 133)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -138,37 +161,53 @@ public class JFrameGerente extends javax.swing.JFrame {
                             .addComponent(jButtonQuitarAnimal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonVerEmpleados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonVerVisitantes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonExpulsarVisitante, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonGoBack, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel1))
-                .addContainerGap(889, Short.MAX_VALUE))
+                            .addComponent(jButtonGoBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonExpulsarVisitante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(153, 153, 153))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabelIngresos)
+                                .addGap(22, 22, 22))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel1)
-                .addGap(37, 37, 37)
-                .addComponent(jButtonAnadirAnimal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonVerIngresos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonContratarEmpleado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonAnadirHabitat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonDespedirEmpleado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonQuitarAnimal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonVerEmpleados)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonExpulsarVisitante)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonVerVisitantes)
-                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jButtonAnadirAnimal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonVerIngresos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonContratarEmpleado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonAnadirHabitat)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonDespedirEmpleado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonQuitarAnimal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonVerEmpleados)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonExpulsarVisitante)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonVerVisitantes)
+                        .addGap(37, 37, 37))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addGap(13, 13, 13)))
                 .addComponent(jButtonGoBack)
-                .addContainerGap(465, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelIngresos)
+                .addContainerGap())
         );
 
         pack();
@@ -178,32 +217,39 @@ public class JFrameGerente extends javax.swing.JFrame {
         JFrameAnadirAnimal jFrameAnadirAnimal = new JFrameAnadirAnimal();
         jFrameAnadirAnimal.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jButtonAnadirAnimalActionPerformed
 
     private void jButtonVerIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerIngresosActionPerformed
-        // TODO add your handling code here:
+        jLabelIngresos.setVisible(true);
     }//GEN-LAST:event_jButtonVerIngresosActionPerformed
 
     private void jButtonContratarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContratarEmpleadoActionPerformed
-        // TODO add your handling code here:
+        JFrameContratarEmpleado jFrameContratarEmpleado = new JFrameContratarEmpleado();
+        jFrameContratarEmpleado.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonContratarEmpleadoActionPerformed
 
     private void jButtonAnadirHabitatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirHabitatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAnadirHabitatActionPerformed
+        JFrameAnadirHabitat jFrameAnadirHabitat = new JFrameAnadirHabitat();
+        jFrameAnadirHabitat.setVisible(true);
+        this.dispose();    }//GEN-LAST:event_jButtonAnadirHabitatActionPerformed
 
     private void jButtonDespedirEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDespedirEmpleadoActionPerformed
-        // TODO add your handling code here:
+        JFrameDespedirEmpleado jFrameDespedirEmpleado = new JFrameDespedirEmpleado();
+        jFrameDespedirEmpleado.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonDespedirEmpleadoActionPerformed
 
     private void jButtonQuitarAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQuitarAnimalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonQuitarAnimalActionPerformed
+        JFrameQuitarAnimal jFrameQuitarAnimal = new JFrameQuitarAnimal();
+        jFrameQuitarAnimal.setVisible(true);
+        this.dispose();     }//GEN-LAST:event_jButtonQuitarAnimalActionPerformed
 
     private void jButtonVerEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerEmpleadosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonVerEmpleadosActionPerformed
+        JFrameVerEmpleados jFrameVerEmpleados = new JFrameVerEmpleados();
+        jFrameVerEmpleados.setVisible(true);
+        this.dispose();     }//GEN-LAST:event_jButtonVerEmpleadosActionPerformed
 
     private void jButtonExpulsarVisitanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExpulsarVisitanteActionPerformed
         // TODO add your handling code here:
@@ -266,5 +312,7 @@ public class JFrameGerente extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVerIngresos;
     private javax.swing.JButton jButtonVerVisitantes;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelIngresos;
     // End of variables declaration//GEN-END:variables
 }

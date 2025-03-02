@@ -16,6 +16,15 @@ public class Zoo {
     private ArrayList<Animal> animales;
     private ArrayList<Empleado> empleados;
     private ArrayList<Visitante> visitantes;
+    private Cuidador currentEmpleado;
+
+    public Cuidador getCurrentEmpleado() {
+        return currentEmpleado;
+    }
+
+    public void setCurrentEmpleado(Cuidador currentEmpleado) {
+        this.currentEmpleado = currentEmpleado;
+    }
 
     public ArrayList<Habitat> getHabitats() {
         return habitats;
