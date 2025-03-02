@@ -17,6 +17,15 @@ public class Zoo {
     private ArrayList<Empleado> empleados;
     private ArrayList<Visitante> visitantes;
     private Cuidador currentEmpleado;
+    private Visitante currentVisitante;
+
+    public Visitante getCurrentVisitante() {
+        return currentVisitante;
+    }
+
+    public void setCurrentVisitante(Visitante currentVisitante) {
+        this.currentVisitante = currentVisitante;
+    }
 
     public Cuidador getCurrentEmpleado() {
         return currentEmpleado;
@@ -70,7 +79,7 @@ public class Zoo {
         this.animales = new ArrayList<Animal>();
         this.empleados = new ArrayList<Empleado>();
         this.visitantes = new ArrayList<Visitante>();
-        
+
     }
 
     @Override
@@ -127,8 +136,8 @@ public class Zoo {
                 total += visitante.comprarEntrada();
             }
         }
-        
-        if(!this.habitats.isEmpty()) {
+
+        if (!this.habitats.isEmpty()) {
             for (Habitat habitat : this.habitats) {
                 total -= habitat.getCosteMantenimiento();
             }

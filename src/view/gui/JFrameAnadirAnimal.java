@@ -72,6 +72,8 @@ public class JFrameAnadirAnimal extends javax.swing.JFrame {
         jTextAreaAnimalSpecies.setRows(5);
         jScrollPane3.setViewportView(jTextAreaAnimalSpecies);
 
+        jButtonCheckAnimalForm.setBackground(new java.awt.Color(204, 255, 204));
+        jButtonCheckAnimalForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonCheckAnimalForm.setText("Añadir animal");
         jButtonCheckAnimalForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

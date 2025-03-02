@@ -66,6 +66,9 @@ public class JFrameRealizarCuidados extends javax.swing.JFrame {
             }
         });
 
+        jButtonDespedir.setBackground(new java.awt.Color(0, 153, 0));
+        jButtonDespedir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonDespedir.setForeground(new java.awt.Color(255, 255, 255));
         jButtonDespedir.setText("Realizar cuidados");
         jButtonDespedir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

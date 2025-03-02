@@ -58,7 +58,11 @@ public class JFrameGerente extends javax.swing.JFrame {
         jLabelIngresos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
+        jButtonAnadirAnimal.setBackground(new java.awt.Color(153, 204, 255));
+        jButtonAnadirAnimal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonAnadirAnimal.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAnadirAnimal.setText("Añadir animal al Zoo");
         jButtonAnadirAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +70,9 @@ public class JFrameGerente extends javax.swing.JFrame {
             }
         });
 
+        jButtonVerIngresos.setBackground(new java.awt.Color(153, 204, 255));
+        jButtonVerIngresos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonVerIngresos.setForeground(new java.awt.Color(255, 255, 255));
         jButtonVerIngresos.setText("Ver Ingresos del Zoo");
         jButtonVerIngresos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +80,9 @@ public class JFrameGerente extends javax.swing.JFrame {
             }
         });
 
+        jButtonContratarEmpleado.setBackground(new java.awt.Color(153, 204, 255));
+        jButtonContratarEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonContratarEmpleado.setForeground(new java.awt.Color(255, 255, 255));
         jButtonContratarEmpleado.setText("Contratrar empleado");
         jButtonContratarEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +90,9 @@ public class JFrameGerente extends javax.swing.JFrame {
             }
         });
 
+        jButtonAnadirHabitat.setBackground(new java.awt.Color(153, 204, 255));
+        jButtonAnadirHabitat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonAnadirHabitat.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAnadirHabitat.setText("Añadir hábitat al zoo");
         jButtonAnadirHabitat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +100,9 @@ public class JFrameGerente extends javax.swing.JFrame {
             }
         });
 
+        jButtonDespedirEmpleado.setBackground(new java.awt.Color(153, 204, 255));
+        jButtonDespedirEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonDespedirEmpleado.setForeground(new java.awt.Color(255, 255, 255));
         jButtonDespedirEmpleado.setText("Despedir empleado");
         jButtonDespedirEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +110,9 @@ public class JFrameGerente extends javax.swing.JFrame {
             }
         });
 
+        jButtonQuitarAnimal.setBackground(new java.awt.Color(153, 204, 255));
+        jButtonQuitarAnimal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonQuitarAnimal.setForeground(new java.awt.Color(255, 255, 255));
         jButtonQuitarAnimal.setText("Quitar animal del zoo");
         jButtonQuitarAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +120,9 @@ public class JFrameGerente extends javax.swing.JFrame {
             }
         });
 
+        jButtonVerEmpleados.setBackground(new java.awt.Color(153, 204, 255));
+        jButtonVerEmpleados.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonVerEmpleados.setForeground(new java.awt.Color(255, 255, 255));
         jButtonVerEmpleados.setText("Ver empleados del zoo");
         jButtonVerEmpleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +130,9 @@ public class JFrameGerente extends javax.swing.JFrame {
             }
         });
 
+        jButtonExpulsarVisitante.setBackground(new java.awt.Color(153, 204, 255));
+        jButtonExpulsarVisitante.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonExpulsarVisitante.setForeground(new java.awt.Color(255, 255, 255));
         jButtonExpulsarVisitante.setText("Expulsar visitante del zoo");
         jButtonExpulsarVisitante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +140,9 @@ public class JFrameGerente extends javax.swing.JFrame {
             }
         });
 
+        jButtonVerVisitantes.setBackground(new java.awt.Color(153, 204, 255));
+        jButtonVerVisitantes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonVerVisitantes.setForeground(new java.awt.Color(255, 255, 255));
         jButtonVerVisitantes.setText("Ver todos los visitantes");
         jButtonVerVisitantes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,11 +150,12 @@ public class JFrameGerente extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
         jLabel1.setText("Bienvenido, gerente!");
 
-        jButtonGoBack.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonGoBack.setBackground(new java.awt.Color(51, 102, 255));
         jButtonGoBack.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        jButtonGoBack.setForeground(new java.awt.Color(255, 255, 255));
         jButtonGoBack.setText("Volver al menú");
         jButtonGoBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,68 +174,67 @@ public class JFrameGerente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(133, 133, 133)
+                .addGap(138, 138, 138)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonAnadirAnimal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonVerIngresos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonContratarEmpleado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAnadirHabitat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonDespedirEmpleado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonQuitarAnimal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonVerEmpleados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonVerVisitantes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonGoBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonExpulsarVisitante))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButtonAnadirAnimal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonVerIngresos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonContratarEmpleado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonAnadirHabitat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonDespedirEmpleado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonQuitarAnimal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonVerEmpleados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonVerVisitantes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonGoBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonExpulsarVisitante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(153, 153, 153))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabelIngresos)
-                                .addGap(22, 22, 22))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(153, 153, 153))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabelIngresos)
+                        .addGap(22, 22, 22))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jButtonAnadirAnimal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonVerIngresos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonContratarEmpleado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonAnadirHabitat)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonDespedirEmpleado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonQuitarAnimal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonVerEmpleados)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonExpulsarVisitante)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonVerVisitantes)
-                        .addGap(37, 37, 37))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addGap(13, 13, 13)))
-                .addComponent(jButtonGoBack)
-                .addContainerGap(29, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelIngresos)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelIngresos))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonAnadirAnimal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonVerIngresos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonContratarEmpleado)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonAnadirHabitat)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonDespedirEmpleado)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonQuitarAnimal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonVerEmpleados)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonExpulsarVisitante)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonVerVisitantes))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(jLabel2)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonGoBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -252,11 +280,14 @@ public class JFrameGerente extends javax.swing.JFrame {
         this.dispose();     }//GEN-LAST:event_jButtonVerEmpleadosActionPerformed
 
     private void jButtonExpulsarVisitanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExpulsarVisitanteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonExpulsarVisitanteActionPerformed
+        JFrameExpulsarVisitante jFrameExpulsarVisitante = new JFrameExpulsarVisitante();
+        jFrameExpulsarVisitante.setVisible(true);
+        this.dispose();       }//GEN-LAST:event_jButtonExpulsarVisitanteActionPerformed
 
     private void jButtonVerVisitantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerVisitantesActionPerformed
-        // TODO add your handling code here:
+        JFrameVerVisitantes jFrameVerVisitantes = new JFrameVerVisitantes();
+        jFrameVerVisitantes.setVisible(true);
+        this.dispose(); 
     }//GEN-LAST:event_jButtonVerVisitantesActionPerformed
 
     private void jButtonGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGoBackActionPerformed

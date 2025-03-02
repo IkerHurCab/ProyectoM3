@@ -55,9 +55,9 @@ public class JFrameExpulsarVisitante extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
-        jLabel1.setText("Despedir empleado");
+        jLabel1.setText("Expulsar Visitante");
 
-        jLabel2.setText("Nombre del empleado");
+        jLabel2.setText("Nombre del visitante");
 
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +66,10 @@ public class JFrameExpulsarVisitante extends javax.swing.JFrame {
             }
         });
 
-        jButtonDespedir.setText("Despedir");
+        jButtonDespedir.setBackground(new java.awt.Color(255, 51, 51));
+        jButtonDespedir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonDespedir.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonDespedir.setText("Expulsar");
         jButtonDespedir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDespedirActionPerformed(evt);
@@ -82,11 +85,7 @@ public class JFrameExpulsarVisitante extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(96, 96, 96)
                 .addComponent(jButtonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(81, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(77, 77, 77))
+                .addContainerGap(209, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,6 +94,10 @@ public class JFrameExpulsarVisitante extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jComboBoxEmployees, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(86, 86, 86))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(289, Short.MAX_VALUE)

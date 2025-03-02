@@ -66,7 +66,10 @@ public class JFrameQuitarAnimal extends javax.swing.JFrame {
             }
         });
 
-        jButtonDespedir.setText("Despedir");
+        jButtonDespedir.setBackground(new java.awt.Color(255, 51, 51));
+        jButtonDespedir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonDespedir.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonDespedir.setText("Quitar");
         jButtonDespedir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDespedirActionPerformed(evt);

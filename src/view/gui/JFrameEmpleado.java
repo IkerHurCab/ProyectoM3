@@ -67,6 +67,9 @@ public class JFrameEmpleado extends javax.swing.JFrame {
         jLabelInvalidName.setForeground(new java.awt.Color(255, 51, 0));
         jLabelInvalidName.setText("No se encuentra el empleado");
 
+        jButtonLogin.setBackground(new java.awt.Color(0, 153, 204));
+        jButtonLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonLogin.setForeground(new java.awt.Color(255, 255, 255));
         jButtonLogin.setText("Entrar");
         jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

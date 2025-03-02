@@ -4,6 +4,12 @@
  */
 package view.gui;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import model.*;
+import view.utils.ZooData;
+
 /**
  *
  * @author iker-hurtado-caballo
@@ -15,6 +21,12 @@ public class JFrameVisitante extends javax.swing.JFrame {
      */
     public JFrameVisitante() {
         initComponents();
+        setup();
+    }
+
+    void setup() {
+        jLabelInvalidName.setVisible(false);
+        jLabelInvalidBirthDate.setVisible(false);
     }
 
     /**
@@ -26,21 +38,161 @@ public class JFrameVisitante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jCheckBoxSocio = new javax.swing.JCheckBox();
+        jButtonCheckAnimalForm = new javax.swing.JButton();
+        jButtonVolver = new javax.swing.JButton();
+        jLabelInvalidName = new javax.swing.JLabel();
+        jLabelInvalidBirthDate = new javax.swing.JLabel();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jTextFieldFecha = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
+        jLabel1.setText("Visitar el zoo");
+
+        jLabel2.setText("Introduce tu nombre");
+
+        jLabel3.setText("Fecha de nacimiento");
+
+        jCheckBoxSocio.setText("¿Eres socio?");
+
+        jButtonCheckAnimalForm.setBackground(new java.awt.Color(0, 153, 255));
+        jButtonCheckAnimalForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonCheckAnimalForm.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonCheckAnimalForm.setText("Visitar el zoo");
+        jButtonCheckAnimalForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCheckAnimalFormActionPerformed(evt);
+            }
+        });
+
+        jButtonVolver.setText("Volver");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
+
+        jLabelInvalidName.setForeground(new java.awt.Color(255, 51, 0));
+        jLabelInvalidName.setText("El visitante ya está en el zoo");
+
+        jLabelInvalidBirthDate.setForeground(new java.awt.Color(255, 51, 0));
+        jLabelInvalidBirthDate.setText("Introduce una fecha de nacimiento válida");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jCheckBoxSocio)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelInvalidName)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabelInvalidBirthDate))
+                                .addGap(15, 15, 15))
+                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldFecha, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(84, 84, 84))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonCheckAnimalForm, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(3, 3, 3)
+                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelInvalidName)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(2, 2, 2)
+                .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelInvalidBirthDate)
+                .addGap(18, 18, 18)
+                .addComponent(jCheckBoxSocio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonCheckAnimalForm, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonCheckAnimalFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCheckAnimalFormActionPerformed
+        String visitanteName = jTextFieldNombre.getText();
+        boolean error = false;
+        setup();
+
+        for (Visitante visitante : ZooData.zoo.getVisitantes()) {
+            if (visitante.getNombre().equalsIgnoreCase(visitanteName)) {
+                jLabelInvalidName.setVisible(true);
+                error = true;
+                break;
+            }
+        }
+
+        String visitanteBirthDate = jTextFieldFecha.getText();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date birthDate = null;
+        try {
+            birthDate = dateFormat.parse(visitanteBirthDate);
+        } catch (ParseException e) {
+            jLabelInvalidBirthDate.setVisible(true);
+            error = true;
+        }
+
+        if (error) {
+            return;
+        }
+
+        if (jCheckBoxSocio.isSelected()) {
+            Socio socio = new Socio();
+
+            socio.setNombre(visitanteName);
+            socio.setFecha(birthDate);
+            ZooData.zoo.getVisitantes().add(socio);
+            ZooData.zoo.setCurrentVisitante(socio);
+
+        } else {
+            NoSocio noSocio = new NoSocio();
+            noSocio.setNombre(visitanteName);
+            noSocio.setFecha(birthDate);
+            ZooData.zoo.getVisitantes().add(noSocio);
+            ZooData.zoo.setCurrentVisitante(noSocio);
+        }
+        this.dispose();
+
+        JFrameVisitanteDashboard jFrameVisitanteDashboard = new JFrameVisitanteDashboard();
+        jFrameVisitanteDashboard.setVisible(true);
+    }//GEN-LAST:event_jButtonCheckAnimalFormActionPerformed
+
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+        JFrameGerente jFrameGerente = new JFrameGerente();
+        jFrameGerente.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +230,15 @@ public class JFrameVisitante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCheckAnimalForm;
+    private javax.swing.JButton jButtonVolver;
+    private javax.swing.JCheckBox jCheckBoxSocio;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelInvalidBirthDate;
+    private javax.swing.JLabel jLabelInvalidName;
+    private javax.swing.JTextField jTextFieldFecha;
+    private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 }
