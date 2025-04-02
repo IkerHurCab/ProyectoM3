@@ -17,6 +17,13 @@ public class Cuidador extends Empleado {
     public Cuidador() {
         this.animales = new ArrayList<Animal>();
     }
+    
+    public Cuidador(String nombre, int id, Date fecha, int sueldo, ArrayList<Animal> animales) {
+    super(nombre, id, fecha); 
+    this.sueldo = sueldo; 
+    this.animales = animales;
+}
+
 
     public Cuidador(String nombre, int id, Date fecha) {
         super(nombre, id, fecha);

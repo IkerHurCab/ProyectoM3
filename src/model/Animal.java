@@ -9,6 +9,8 @@ package model;
  * @author ikerhurcab
  */
 public class Animal {
+
+    private int id;
     private String nombre;
     private String especie;
     private Empleado empleado;
@@ -16,8 +18,9 @@ public class Animal {
 
     public Animal() {
     }
-
-    public Animal(String nombre, String especie, Empleado empleado, int salud) {
+    
+    public Animal(int id, String nombre, String especie, Empleado empleado, int salud) {
+        this.id = id;
         this.nombre = nombre;
         this.especie = especie;
         this.empleado = empleado;
@@ -67,11 +70,11 @@ public class Animal {
         sb.append('}');
         return sb.toString();
     }
-    
+
     public void asignarCuidador(Empleado empleado) {
         this.empleado = empleado;
     }
-    
+
     public void realizarCuidados() {
         this.salud = 100;
     }
