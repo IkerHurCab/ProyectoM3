@@ -149,6 +149,7 @@ public class JFrameQuitarAnimal extends javax.swing.JFrame {
         
         if (empleadoAEliminar != null) {
             ZooData.zoo.getAnimales().remove(empleadoAEliminar);
+            ZooData.borrarAnimal(empleadoAEliminar.getId());
         }
 
         setup();

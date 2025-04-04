@@ -205,6 +205,7 @@ public class JFrameContratarEmpleado extends javax.swing.JFrame {
         empleado.setFecha(birthDate);
         empleado.setSueldo(employeeSalary);
         ZooData.zoo.getEmpleados().add(empleado);
+        ZooData.guardarCuidador(employeeName, birthDate, employeeSalary);
         this.dispose();
 
         JFrameGerente jFrameGerente = new JFrameGerente();

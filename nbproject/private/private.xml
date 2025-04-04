@@ -6,10 +6,16 @@
             <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/model/Empleado.java</file>
             <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/view/utils/ZooData.java</file>
             <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/view/gui/JFrameHome.java</file>
-            <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/model/Cuidador.java</file>
+            <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/model/Visitante.java</file>
             <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/model/Persona.java</file>
-            <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/model/Animal.java</file>
+            <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/view/gui/JFrameQuitarAnimal.java</file>
             <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/model/Zoo.java</file>
+            <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/view/gui/JFrameAnadirHabitat.java</file>
+            <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/view/gui/JFrameContratarEmpleado.java</file>
+            <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/model/Cuidador.java</file>
+            <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/view/gui/JFrameAnadirAnimal.java</file>
+            <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/model/Animal.java</file>
+            <file>file:/C:/Users/ikerhurcab/Documents/NetBeansProjects/ZooSwing/src/view/gui/JFrameRealizarCuidados.java</file>
         </group>
     </open-files>
 </project-private>

@@ -143,6 +143,7 @@ public class JFrameRealizarCuidados extends javax.swing.JFrame {
             for (Animal animal : ZooData.zoo.getCurrentEmpleado().getAnimales()) {
                 if (animal.getNombre().equalsIgnoreCase(nombreSeleccionado)) {
                     animal.realizarCuidados();
+                    ZooData.realizarCuidados(animal.getId());
                 }
             }
         }
