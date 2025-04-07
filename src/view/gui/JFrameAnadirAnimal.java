@@ -145,7 +145,7 @@ public class JFrameAnadirAnimal extends javax.swing.JFrame {
     private void jButtonCheckAnimalFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCheckAnimalFormActionPerformed
         String animalName = jTextAreaAnimalName.getText();
         String animalSpecies = jTextAreaAnimalSpecies.getText();
-        String selectedEmployeeName = (String) jComboBoxEmployees.getSelectedItem(); 
+        String selectedEmployeeName = (String) jComboBoxEmployees.getSelectedItem();
 
         Animal animal = new Animal();
         animal.setNombre(animalName);
@@ -165,6 +165,9 @@ public class JFrameAnadirAnimal extends javax.swing.JFrame {
             if (empleadoAsignado != null) {
                 animal.asignarCuidador(empleadoAsignado);
                 empleadoAsignado.getAnimales().add(animal);
+                ZooData.guardarAnimal(animalName, animalSpecies, empleadoAsignado.getId());
+            } else {
+                ZooData.guardarAnimal(animalName, animalSpecies, 0);
             }
         }
 

@@ -152,7 +152,8 @@ public class JFrameAnadirHabitat extends javax.swing.JFrame {
         Habitat habitat = new Habitat();
         habitat.setNombre(habitatName);
         habitat.setCosteMantenimiento(habitatCost);
-
+        
+        ZooData.guardarHabitat(habitatName, habitatCost);
         ZooData.zoo.agregarHabitat(habitat);
 
         this.dispose();

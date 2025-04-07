@@ -148,6 +148,7 @@ public class JFrameDespedirEmpleado extends javax.swing.JFrame {
         }
         
         if (empleadoAEliminar != null) {
+            ZooData.borrarEmpleado(empleadoAEliminar.getId());
             ZooData.zoo.getEmpleados().remove(empleadoAEliminar);
         }
 

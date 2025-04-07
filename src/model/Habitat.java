@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * @author ikerhurcab
  */
 public class Habitat {
+    private int id;
     private ArrayList<Animal> animales;
     private String nombre;
     private int costeMantenimiento;
@@ -41,6 +42,12 @@ public class Habitat {
 
     public Habitat(ArrayList<Animal> animales, String nombre, int costeMantenimiento) {
         this.animales = animales;
+        this.nombre = nombre;
+        this.costeMantenimiento = costeMantenimiento;
+    }
+    
+        public Habitat(int id, String nombre, int costeMantenimiento) {
+        this.id = id;
         this.nombre = nombre;
         this.costeMantenimiento = costeMantenimiento;
     }

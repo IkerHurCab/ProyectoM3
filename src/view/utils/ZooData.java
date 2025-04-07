@@ -86,6 +86,66 @@ public class ZooData {
         }
     }
 
+    public static ArrayList<Habitat> getHabitatDataFromDatabase() {
+        ArrayList<Habitat> habitats = new ArrayList<Habitat>();
+
+        try {
+            URL url = new URL(apiUrl + "habitats");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+
+            if (conn.getResponseCode() != 200) {
+                System.out.println("Error: " + conn.getResponseCode());
+                return null;
+            }
+
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            StringBuilder response = new StringBuilder();
+            String output;
+
+            while ((output = br.readLine()) != null) {
+                response.append(output);
+            }
+            conn.disconnect();
+
+            String json = response.toString().replace("[", "").replace("]", "");
+            String[] items = json.split("\\},\\{");
+
+            for (String item : items) {
+                item = item.replace("{", "").replace("}", "");
+
+                String[] fields = item.split(",");
+                int id = 0;
+                String nombre = "";
+                int costeMantenimiento = 0;
+
+                for (String field : fields) {
+                    String[] keyValue = field.split(":");
+                    String key = keyValue[0].replace("\"", "").trim();
+                    String value = keyValue[1].replace("\"", "").trim();
+
+                    switch (key) {
+                        case "id":
+                            id = Integer.parseInt(value);
+                        case "nombre":
+                            nombre = value;
+                            break;
+                        case "coste":
+                            costeMantenimiento = Integer.parseInt(value);
+                            break;
+                    }
+                }
+                habitats.add(new Habitat(id, nombre, costeMantenimiento));
+            }
+            return habitats;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public static ArrayList<Cuidador> getCuidadorDataFromDatabase() {
         ArrayList<Cuidador> cuidadores = new ArrayList<>();
 
@@ -293,7 +353,6 @@ public class ZooData {
     }
 
     public static void realizarCuidados(int id) {
-        System.out.println("ID recibido: " + id);
         try {
             URL url = new URL(apiUrl + "animales/cuidados/" + id);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -317,7 +376,6 @@ public class ZooData {
     }
 
     public static void guardarCuidador(String nombre, Date fecha, double sueldo) {
-        System.out.println("Creando nuevo cuidador...");
         try {
             URL url = new URL(apiUrl + "cuidadores");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -334,7 +392,6 @@ public class ZooData {
                     + "\"sueldo\": " + sueldo + ","
                     + "\"animales\": []"
                     + "}";
-
 
             try (OutputStream os = conn.getOutputStream()) {
                 byte[] input = jsonInputString.getBytes("utf-8");
@@ -372,6 +429,116 @@ public class ZooData {
         }
     }
 
+    public static void guardarHabitat(String nombre, int costeMantenimiento) {
+        try {
+            URL url = new URL(apiUrl + "habitats");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setDoOutput(true);
+
+            String jsonInputString = "{"
+                    + "\"nombre\": \"" + nombre + "\","
+                    + "\"coste\": " + costeMantenimiento
+                    + "}";
+
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+
+            int responseCode = conn.getResponseCode();
+
+            if (responseCode >= 400) {
+                try (BufferedReader br = new BufferedReader(
+                        new InputStreamReader(conn.getErrorStream(), "utf-8"))) {
+                    StringBuilder response = new StringBuilder();
+                    String responseLine;
+                    while ((responseLine = br.readLine()) != null) {
+                        response.append(responseLine.trim());
+                    }
+                    System.out.println("Error response: " + response.toString());
+                }
+            } else {
+                try (BufferedReader br = new BufferedReader(
+                        new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+                    StringBuilder response = new StringBuilder();
+                    String responseLine;
+                    while ((responseLine = br.readLine()) != null) {
+                        response.append(responseLine.trim());
+                    }
+                    System.out.println("Success response: " + response.toString());
+                }
+            }
+
+            conn.disconnect();
+        } catch (Exception e) {
+            System.out.println("Error al guardar hábitat: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public static void guardarAnimal(String nombre, String especie, int cuidadorId) {
+        try {
+            URL url = new URL(apiUrl + "animales");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setDoOutput(true);
+
+            String jsonInputString;
+            if (cuidadorId != 0) {
+                jsonInputString = "{"
+                        + "\"nombre\": \"" + nombre + "\","
+                        + "\"especie\": \"" + especie + "\","
+                        + "\"salud\": 100,"
+                        + "\"cuidador\": { \"id\": " + cuidadorId + " }"
+                        + "}";
+            } else {
+                jsonInputString = "{"
+                        + "\"nombre\": \"" + nombre + "\","
+                        + "\"especie\": \"" + especie + "\","
+                        + "\"salud\": 100,"
+                        + "\"cuidador\": null"
+                        + "}";
+            }
+
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+
+            int responseCode = conn.getResponseCode();
+
+            if (responseCode >= 400) {
+                try (BufferedReader br = new BufferedReader(
+                        new InputStreamReader(conn.getErrorStream(), "utf-8"))) {
+                    StringBuilder response = new StringBuilder();
+                    String responseLine;
+                    while ((responseLine = br.readLine()) != null) {
+                        response.append(responseLine.trim());
+                    }
+                    System.out.println("Error response: " + response.toString());
+                }
+            } else {
+                try (BufferedReader br = new BufferedReader(
+                        new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+                    StringBuilder response = new StringBuilder();
+                    String responseLine;
+                    while ((responseLine = br.readLine()) != null) {
+                        response.append(responseLine.trim());
+                    }
+                    System.out.println("Success response: " + response.toString());
+                }
+            }
+
+            conn.disconnect();
+        } catch (Exception e) {
+            System.out.println("Error al guardar animal: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
     public static void borrarAnimal(int id) {
         try {
             URL url = new URL(apiUrl + "animales/" + id);
@@ -387,6 +554,22 @@ public class ZooData {
             e.printStackTrace();
         }
     }
+    
+        public static void borrarEmpleado(int id) {
+        try {
+            URL url = new URL(apiUrl + "cuidadores/" + id);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("DELETE");
 
-    public static Zoo zoo = new Zoo(new ArrayList<Habitat>(), new ArrayList<Animal>(getAnimalDataFromDatabase()), new ArrayList<Empleado>(getCuidadorDataFromDatabase()), new ArrayList<Visitante>());
+            int responseCode = conn.getResponseCode();
+            System.out.println("Código de respuesta: " + responseCode);
+
+            conn.disconnect();
+        } catch (Exception e) {
+            System.out.println("Error al borrar el animal: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public static Zoo zoo = new Zoo(new ArrayList<Habitat>(getHabitatDataFromDatabase()), new ArrayList<Animal>(getAnimalDataFromDatabase()), new ArrayList<Empleado>(getCuidadorDataFromDatabase()), new ArrayList<Visitante>());
 }
